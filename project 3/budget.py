@@ -51,24 +51,24 @@ def create_spend_chart(categories):
     total_spend = sum(spends)
 
     spend_percentages = [ int((spend * 100) // total_spend) for spend in spends]
-  
+
     #print( spend_percentages )
 
     for i in range(100, -1, -10):
         chart += "\n" + str(i).rjust(3) + "|"
         for j in spend_percentages:
             if j >= i:
-              chart += " o "
-              continue
+                chart += " o "
+                continue
             chart += "   "
         chart += " "
     chart += "\n    ----------"
-  
+
     cat_length = []
     for category in categories:
         cat_length.append(len(category.name))
     max_length = max(cat_length)
-  
+
     for i in range(max_length):
         chart += "\n    "
         for j in range(len(categories)):
@@ -77,9 +77,8 @@ def create_spend_chart(categories):
                 continue
             chart += "   "
         chart += " "
-  
     return chart
-  
+
     '''for percentage in range(100, -1, -10):
         chart += (str(percentage) + "|").rjust(4)
         
